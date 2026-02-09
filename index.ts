@@ -1,10 +1,12 @@
+import "dotenv/config";
 import express from "express";
 import { PrismaClient } from "@prisma/client";
+import { prismaConfig } from "./prisma/prisma.config";
 import bodyParser from "body-parser";
 import cors from "cors";
 
 const app = express();
-const prisma = new PrismaClient();
+const prisma = new PrismaClient(prismaConfig);
 
 app.use(cors());
 app.use(bodyParser.json());
