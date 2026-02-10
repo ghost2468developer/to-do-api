@@ -4,9 +4,11 @@ import {
   getTodos,
   updateTodo,
   deleteTodo
-} from '../controllers/controller.js'
+} from '../controllers/todo-controller.js'
+import { authenticate } from '../middleware/auth.js'
 
 const router = Router()
+router.use(authenticate) // all routes protected
 
 router.post('/', createTodo)
 router.get('/', getTodos)
